@@ -260,7 +260,7 @@ module Xrechnung
           xml.cbc :Note, note
         end
 
-        xml.cbc :TaxPointDate, tax_point_date
+        xml.cbc :TaxPointDate, tax_point_date if tax_point_date
         xml.cbc :DocumentCurrencyCode, document_currency_code
         xml.cbc :TaxCurrencyCode, tax_currency_code
         xml.cbc :BuyerReference, buyer_reference
