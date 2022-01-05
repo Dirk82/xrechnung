@@ -22,6 +22,10 @@ module Xrechnung
     #   @return [Xrechnung::Price]
     member :price, type: Xrechnung::Price
 
+    # @!attribute invoice_period
+    #   @return [Xrechnung::Period]
+    member :invoice_period, type: Xrechnung::Period
+
     def initialize(**kwargs)
       kwargs[:line_extension_amount] = Currency::EUR(kwargs[:line_extension_amount])
       super(**kwargs)
@@ -35,6 +39,7 @@ module Xrechnung
         xml.cbc :LineExtensionAmount, *line_extension_amount.xml_args
         item&.to_xml(xml)
         price&.to_xml(xml)
+        invoice_period&.to_xml(xml)
       end
     end
   end
